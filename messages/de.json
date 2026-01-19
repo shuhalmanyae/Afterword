@@ -1,0 +1,34 @@
+{
+  "Hero": {
+    "supertitle": "Afterword",
+    "title_part1": "Geheimnisse bewahrt.",
+    "title_part2": "Bis sie es nicht mehr sein sollten.",
+    "carousel": [
+      "Ensure your story doesn't end when you do.",
+      "Be there for them one last time, even when you’re gone.",
+      "The most secure way to say 'I love you' from the other side.",
+      "Your digital legacy, locked in a Swiss vault and delivered on your terms.",
+      "Swiss-grade security for the messages that matter most.",
+      "The only inbox that opens when yours closes forever.",
+      "When you go silent, let Afterword speak for you.",
+      "Leave nothing unsaid: The automated courier for your final words.",
+      "The message that only sends when you can't.",
+      "Secure your goodbye today, so it’s delivered automatically tomorrow."
+    ],
+    "cta": "Lassen Sie nichts ungesagt"
+  },
+  "TrustSignals": {
+    "swiss_title": "In der Schweiz gehostet",
+    "swiss_desc": "Physisch auf neutralem Boden gelegen.",
+    "encryption_title": "AES-256 Verschlüsselung",
+    "encryption_desc": "Mathematische Unmöglichkeit des unbefugten Zugriffs.",
+    "sovereignty_title": "Souveränität",
+    "sovereignty_desc": "Ihre Daten gehören Ihnen. Auch im Tod."
+  },
+  "Footer": {
+    "pledge": "Das Versprechen",
+    "privacy": "Datenschutz",
+    "terms": "AGB",
+    "copyright": "Afterword. Gehostet in der Schweiz."
+  }
+}

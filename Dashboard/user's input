@@ -1,0 +1,28 @@
+@PROJECT_WORKFLOW.md
+
+Let's build the **Dashboard** (The Vault) at `/dashboard`. While keeping the main design as elegent as the homepage. 
+
+**Design Concept:** "Swiss Bank Safe Deposit Box."
+* **Theme:** Dark mode, minimalist, high contrast (Silver/Grey on Black).
+* **Layout:** 3-Column Grid (responsive).
+
+**Column 1: Beneficiaries**
+* List of contacts (Name + Email).
+* "Add New Contact" button.
+
+**Column 2: The Assets (Main Feed)**
+* Display a list of "Digital Envelopes" (Cards).
+* Each card shows:
+    * Type Icon (Text, Audio, Video).
+    * Title (e.g., "For Sarah").
+    * Status Badge (Draft / Secured).
+* **Input Area:** A clean input box at the top: "Leave a message..." with attachment icons.
+
+**Column 3: Security Status**
+* **Pulse Indicator:** Green dot ("Monitoring Active").
+* **Next Check:** Date display.
+* **Guest Logic:** If `user_is_guest` is true, show a "14-Day Deletion Countdown" and a "Secure Now ($4.99)" button.
+
+**Tech Stack:**
+* Use `lucide-react` for icons (Lock, Mic, Video, User).
+* Use a 'Masonry' or 'Grid' layout for the messages.

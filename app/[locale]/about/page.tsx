@@ -1,8 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "@/i18n/routing";
 import { ArrowRight, Feather, Lock, Globe, Clock, ShieldCheck, Heart } from "lucide-react";
+import Footer from "@/components/Footer";
 
 export default function AboutPage() {
     return (
@@ -143,10 +144,17 @@ export default function AboutPage() {
                     </Link>
                 </motion.div>
 
+                {/* Footer Section */}
+                {/* Footer Section - Replaced by Global Footer */}
+                <Footer />
+
+
             </div>
         </main>
     );
 }
+
+
 
 function Section({ title, subtitle, children }: { title: string, subtitle: string, children: React.ReactNode }) {
     return (

@@ -8,6 +8,7 @@ import SecurityColumn from "@/components/Dashboard/SecurityColumn";
 import ProtocolModal from "@/components/Dashboard/ProtocolModal";
 import RecipientModal from "@/components/Dashboard/RecipientModal";
 import AddContactModal from "@/components/Dashboard/AddContactModal";
+import DashboardTour from "@/components/DashboardTour";
 
 export default function Dashboard() {
     const [isProtocolOpen, setIsProtocolOpen] = useState(false);
@@ -72,7 +73,7 @@ export default function Dashboard() {
     // Derived list for the sidebar
     const sidebarList = entryIds.map(id => ({
         id,
-        name: drafts[id]?.subject || "Start writing your message",
+        name: drafts[id]?.subject || "Craft Message",
         email: "" // Not used anymore
     }));
 
@@ -139,6 +140,9 @@ export default function Dashboard() {
                     <RecipientModal isOpen={isRecipientModalOpen} onClose={() => setIsRecipientModalOpen(false)} />
                 )}
             </AnimatePresence>
+
+            {/* Onboarding Tour */}
+            <DashboardTour />
         </main>
     );
 }

@@ -30,5 +30,45 @@
     "privacy": "Privacy",
     "terms": "Terms",
     "copyright": "Afterword. Hosted in Switzerland."
+  },
+  "About": {
+    "Footer": {
+      "company": "Afterword AG",
+      "address": "Gelterkinden, Switzerland 4460",
+      "referral_link": "Send Anonymous Invite"
+    },
+    "Modal": {
+      "headline": "Pass it on.",
+      "subtext": "We will send them a gentle invitation. We will never reveal who sent it.",
+      "input_placeholder": "Recipient's Email",
+      "message_card": "I came across this quiet space and thought of you. It’s not for today, and maybe not for tomorrow. But it’s a beautiful way to ensure that whenever the time comes, nothing is left unsaid.",
+      "button": "Send Anonymously",
+      "success": "Your whisper has been sent."
+    }
+  },
+  "Pledge": {
+    "title": "The Swiss Pledge",
+    "subtitle": "Where your silence is protected by stone.",
+    "Cards": {
+      "mountain_title": "The Mountain",
+      "mountain_header": "We do not trust the Cloud. We trust the Alps.",
+      "mountain_body": "Afterword has returned to the physical. Your legacy is stored in former military-grade bunkers, buried deep beneath granite rock. Designed to withstand time, nature, and intrusion.",
+      "mountain_footer": "Location: Deep Earth Storage, Switzerland. Jurisdiction: Solely Swiss.",
+      "law_title": "The Law",
+      "law_header": "No Backdoors.",
+      "law_body": "Operating strictly under Swiss Federal Law (FADP), we are forbidden from disclosing your data to foreign entities. We are not a social network. We are a Vault. Even our engineers cannot read your encrypted entries.",
+      "guardian_title": "The Guardian Protocol",
+      "guardian_header": "We exist for exactly one moment.",
+      "guardian_body": "Our Pulse Verification System checks for your digital heartbeat. It verifies with your Trusted Circle. It waits for the silence. When that moment comes, the system executes the command you left behind."
+    },
+    "Process": {
+      "step1": "Verification",
+      "step2": "Decryption",
+      "step3": "Delivery"
+    },
+    "CTA": {
+      "text": "The world is loud. Your legacy should be secure. Place your story where the banks place their gold.",
+      "button": "Secure Your Entry"
+    }
   }
 }

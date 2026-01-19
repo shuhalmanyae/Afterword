@@ -20,9 +20,11 @@ export default function NavigationMenu() {
 
     const menuItems = [
         { label: "Home", href: "/" },
-        { label: "About Us", href: "/about" },
-        { label: "Dashboard", href: "/dashboard" },
+        { label: "The Pledge", href: "/pledge" },
+        { label: "How It Works", href: "/about" },
     ];
+
+    const buttonStyle = "group relative rounded-full bg-transparent px-8 py-4 text-sm font-light text-white border border-white/30 hover:border-white/80 transition-all duration-500 flex items-center gap-3 overflow-hidden backdrop-blur-sm w-full";
 
     return (
         <>
@@ -30,7 +32,7 @@ export default function NavigationMenu() {
             <div className="fixed top-8 right-8 z-[100]">
                 <button
                     onClick={() => setIsOpen(!isOpen)}
-                    className="p-3 bg-black/20 backdrop-blur-md border border-white/10 rounded-full text-white hover:bg-white/10 transition-colors group"
+                    className="p-3 bg-transparent backdrop-blur-md border border-white/30 rounded-full text-white hover:border-white/80 transition-all duration-500 group"
                 >
                     <AnimatePresence mode="wait">
                         {isOpen ? (
@@ -70,21 +72,19 @@ export default function NavigationMenu() {
                             initial={{ opacity: 0, scale: 0.9, y: -20 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.9, y: -20 }}
-                            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }} // Apple-style spring
-                            className="fixed top-24 right-8 z-[95] w-64 bg-black/60 backdrop-blur-xl border border-white/20 rounded-[32px] overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.6)]"
+                            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                            className="fixed top-24 right-8 z-[95] min-w-[200px]"
                         >
-                            <div className="p-4 space-y-2">
+                            <div className="space-y-4">
                                 {menuItems.map((item) => (
                                     <Link
                                         key={item.href}
                                         href={item.href}
                                         onClick={() => setIsOpen(false)}
-                                        className="flex items-center gap-4 px-6 py-4 text-white/80 hover:text-white hover:bg-white/5 rounded-2xl transition-all group"
+                                        className={buttonStyle}
                                     >
-                                        <span className="text-white/30 group-hover:text-white/60 transition-colors text-lg tracking-tighter">
-                                            —
-                                        </span>
-                                        <span className="font-serif italic tracking-wide text-lg">{item.label}</span>
+                                        <div className="absolute inset-0 w-full h-full bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                        <span className="tracking-widest uppercase text-xs w-full text-center">{item.label}</span>
                                     </Link>
                                 ))}
                             </div>

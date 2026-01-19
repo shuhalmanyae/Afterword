@@ -2,6 +2,7 @@
 
 import { Mic, Video, Bold, Italic, Link, Image as ImageIcon, Sparkles, Underline, List, Send, ArrowUp } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface MessageComposerProps {
     initialSubject?: string;
@@ -18,6 +19,8 @@ export default function MessageComposer({ initialSubject = "", initialBody = "",
     // Audio Recording State
     const [isRecording, setIsRecording] = useState(false);
     const [audioUrl, setAudioUrl] = useState<string | null>(null);
+    const [recordingName, setRecordingName] = useState("Voice Note");
+    const [showVoiceGuide, setShowVoiceGuide] = useState(false);
     const mediaRecorderRef = useRef<MediaRecorder | null>(null);
     const audioChunksRef = useRef<Blob[]>([]);
 
@@ -39,6 +42,15 @@ export default function MessageComposer({ initialSubject = "", initialBody = "",
             // Stop Recording
             mediaRecorderRef.current?.stop();
             setIsRecording(false);
+
+            // Check for first-time guide
+            const hasSeenGuide = localStorage.getItem('hasSeenVoiceGuide');
+            if (!hasSeenGuide) {
+                setShowVoiceGuide(true);
+                localStorage.setItem('hasSeenVoiceGuide', 'true');
+                // Auto-hide after 5 seconds
+                setTimeout(() => setShowVoiceGuide(false), 5000);
+            }
         } else {
             // Start Recording
             try {
@@ -104,8 +116,8 @@ export default function MessageComposer({ initialSubject = "", initialBody = "",
                             <button
                                 onClick={handleToggleRecording}
                                 className={`p-2 rounded-lg transition-all ${isRecording
-                                        ? "bg-red-500/20 text-red-500 animate-pulse"
-                                        : "text-white/50 hover:text-white hover:bg-white/10"
+                                    ? "bg-red-500/20 text-red-500 animate-pulse"
+                                    : "text-white/50 hover:text-white hover:bg-white/10"
                                     }`}
                                 title={isRecording ? "Stop Recording" : "Record Audio"}
                             >
@@ -151,9 +163,49 @@ export default function MessageComposer({ initialSubject = "", initialBody = "",
 
                     {/* Audio Player (if recorded) */}
                     {audioUrl && (
-                        <div className="mb-6 bg-white/5 p-4 rounded-xl border border-white/10">
+                        <div className="mb-6 bg-white/5 p-4 rounded-xl border border-white/10 relative">
                             <div className="flex items-center gap-4">
-                                <span className="text-xs uppercase tracking-widest text-white/50">Voice Note</span>
+                                <div className="relative group">
+                                    <input
+                                        type="text"
+                                        value={recordingName}
+                                        onChange={(e) => setRecordingName(e.target.value)}
+                                        className="bg-transparent border-b border-white/10 focus:border-white/50 outline-none text-xs uppercase tracking-widest text-white/70 focus:text-white w-32 transition-colors py-1"
+                                    />
+                                    {/* Tooltip Guide */}
+                                    <AnimatePresence>
+                                        {showVoiceGuide && (
+                                            <>
+                                                {/* Pulse Beacon */}
+                                                <div className="absolute -top-1 -right-1 pointer-events-none">
+                                                    <span className="absolute inline-flex h-full w-full rounded-full bg-white opacity-75 animate-ping"></span>
+                                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+                                                </div>
+
+                                                {/* Glass Tooltip */}
+                                                <motion.div
+                                                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                                                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                                                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                                                    className="absolute bottom-full left-0 mb-4 w-72 p-5 bg-black/90 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl z-50"
+                                                >
+                                                    <h4 className="text-white font-serif text-lg mb-2">Name your story.</h4>
+                                                    <p className="text-white/60 text-sm font-light leading-relaxed mb-4">
+                                                        Give your voice note a title so your heirs know exactly what to listen to.
+                                                    </p>
+                                                    <button
+                                                        onClick={() => setShowVoiceGuide(false)}
+                                                        className="text-xs font-bold uppercase tracking-widest text-white hover:text-white/80 transition-colors"
+                                                    >
+                                                        Got it
+                                                    </button>
+                                                    {/* Arrow */}
+                                                    <div className="absolute -bottom-1.5 left-6 w-3 h-3 bg-black border-r border-b border-white/10 rotate-45"></div>
+                                                </motion.div>
+                                            </>
+                                        )}
+                                    </AnimatePresence>
+                                </div>
                                 <audio controls src={audioUrl} className="h-8 w-64 accent-white" />
                                 <button
                                     onClick={() => setAudioUrl(null)}

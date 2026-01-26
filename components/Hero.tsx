@@ -29,20 +29,8 @@ export default function Hero() {
     }, []);
 
     return (
-        <div className="relative isolate min-h-[90vh] flex items-center overflow-hidden">
-            {/* Background Video */}
-            <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover z-0 opacity-50"
-            >
-                <source src="/videos/background.mp4" type="video/mp4" />
-            </video>
+        <div className="relative isolate flex-1 flex items-center overflow-hidden w-full">
 
-            {/* Dark Overlay Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent z-0" />
 
             {/* Subtle "Soul" Glow (adjusted for left align) */}
             <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 blur-[150px] rounded-full opacity-30 pointer-events-none z-0" />
@@ -55,9 +43,6 @@ export default function Hero() {
                         transition={{ duration: 0.8, ease: "easeOut" }}
                     >
                         <h1 className="text-5xl font-light tracking-tight text-foreground sm:text-7xl">
-                            <span className="block text-muted-foreground/80 text-3xl sm:text-5xl mb-4 font-thin tracking-widest uppercase">
-                                {t('supertitle')}
-                            </span>
                             {t('title_part1')} <br />
                             <span className="font-semibold text-white drop-shadow-2xl">
                                 {t('title_part2')}

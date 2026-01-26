@@ -36,6 +36,79 @@ export default function MessageComposer({ initialSubject = "", initialBody = "",
         return () => clearTimeout(timer);
     }, [subject, body, onSave]);
 
+    // Random Placeholder Logic
+    const [animatedPlaceholder, setAnimatedPlaceholder] = useState("");
+    const [isTypingComplete, setIsTypingComplete] = useState(false);
+
+    useEffect(() => {
+        const examples = [
+            "If you are reading this, you probably just graduated. I am so incredibly proud of the woman you have become.",
+            "I have attached a secured PDF below containing the seed phrase for my hardware wallet. The password is your birthday.",
+            "To my darling Sarah: I loved you from the moment we met until my very last breath. Thank you for the best years of my life.",
+            "Don't be sad that I'm gone. Be happy that I didn't spend all the inheritance. (Check the safe in the basement).",
+            "The access keys to my digital estate are in the encrypted file attached. Please hold onto them for the grandkids.",
+            "My only regret is working so hard on weekends. Take the trip. Buy the shoes. Kiss the boy.",
+            "I forgive you for what happened back then. Let it go. Live your life without that weight on your shoulders.",
+            "The code to the safe is not lost. It is hidden inside the copy of 'Moby Dick' in my study, page 42.",
+            "Please get married again. I don't want you to be lonely. Just don't marry Dave.",
+            "I had a wonderful life. Thank you for being the best part of it."
+        ];
+
+        // Initial setup for cycling
+        let loopNum = Math.floor(Math.random() * examples.length);
+        let isDeleting = false;
+        let txt = '';
+        let timer: NodeJS.Timeout;
+
+        const tick = () => {
+            // Stop if user typed
+            if (body) {
+                setAnimatedPlaceholder("");
+                return;
+            }
+
+            const i = loopNum % examples.length;
+            const fullText = examples[i];
+
+            // Update text: typing or deleting
+            if (isDeleting) {
+                txt = fullText.substring(0, txt.length - 1);
+            } else {
+                txt = fullText.substring(0, txt.length + 1);
+            }
+
+            setAnimatedPlaceholder(txt);
+
+            let delta = 40; // Typing speed
+
+            if (isDeleting) {
+                delta /= 2; // Deleting speed
+            }
+
+            if (!isDeleting && txt === fullText) {
+                // Finished typing sentence
+                delta = 3000; // Pause for reading
+                isDeleting = true;
+                setIsTypingComplete(true);
+            } else if (isDeleting && txt === '') {
+                // Finished deleting sentence
+                isDeleting = false;
+                loopNum++;
+                delta = 500; // Pause before next
+                setIsTypingComplete(false);
+            } else {
+                setIsTypingComplete(false);
+            }
+
+            timer = setTimeout(tick, delta);
+        };
+
+        // Start loop
+        timer = setTimeout(tick, 500);
+
+        return () => clearTimeout(timer);
+    }, [body]);
+
     // Audio Logic
     const handleToggleRecording = async () => {
         if (isRecording) {
@@ -219,14 +292,23 @@ export default function MessageComposer({ initialSubject = "", initialBody = "",
                     )}
 
                     {/* Editor Body */}
-                    <div className="flex-1 relative h-full min-h-0">
-                        <textarea
-                            ref={textareaRef}
-                            value={body}
-                            onChange={(e) => setBody(e.target.value)}
-                            className="w-full h-full bg-transparent border-none outline-none text-lg text-white/90 placeholder-white/30 resize-none font-light leading-relaxed custom-textarea"
-                            placeholder="Start writing..."
-                        />
+                    <div className="flex-1 relative h-full min-h-0 group">
+                        <div className="absolute -inset-2 bg-gradient-to-r from-white/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500 blur-sm pointer-events-none" />
+                        <div className="relative h-full bg-white/5 border border-white/10 rounded-xl p-6 transition-colors focus-within:bg-white/10 focus-within:border-white/30">
+                            <textarea
+                                ref={textareaRef}
+                                value={body}
+                                onChange={(e) => setBody(e.target.value)}
+                                className="w-full h-full bg-transparent border-none outline-none text-lg text-white/90 placeholder-white/30 resize-none font-light leading-relaxed custom-textarea font-serif tracking-wide"
+                                placeholder={animatedPlaceholder}
+                            />
+                            {/* Editable Hint */}
+                            {!body && isTypingComplete && (
+                                <div className="absolute bottom-4 right-4 text-[10px] text-white/30 uppercase tracking-widest pointer-events-none animate-pulse">
+                                    Start Writing
+                                </div>
+                            )}
+                        </div>
 
                         {/* Subtle decoration */}
                         <div className="absolute right-0 bottom-0 pointer-events-none opacity-5">

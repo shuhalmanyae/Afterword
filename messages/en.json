@@ -27,21 +27,23 @@
   },
   "Footer": {
     "pledge": "The Pledge",
-    "privacy": "Privacy",
-    "terms": "Terms",
-    "copyright": "Afterword. Hosted in Switzerland."
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "copyright": "Afterword. All rights reserved."
   },
   "About": {
     "Footer": {
-      "company": "Afterword AG",
+      "company": "Afterword",
       "address": "Gelterkinden, Switzerland 4460",
-      "referral_link": "Send Anonymous Invite"
+      "email": "hello@afterword.ch",
+      "designed_by": "Swiss Hosted",
+      "referral_link": "Share Discreetly"
     },
     "Modal": {
       "headline": "Pass it on.",
       "subtext": "We will send them a gentle invitation. We will never reveal who sent it.",
       "input_placeholder": "Recipient's Email",
-      "message_card": "I came across this quiet space and thought of you. It’s not for today, and maybe not for tomorrow. But it’s a beautiful way to ensure that whenever the time comes, nothing is left unsaid.",
+      "message_card": "I came across this quiet space and thought of you. It’s not for today, and maybe not for tomorrow. But it’s a beautiful way to ensure that whenever the time comes, nothing is left unsaid.\n\nCheers!\nFrom someone who plans ahead.",
       "button": "Send Anonymously",
       "success": "Your whisper has been sent."
     }

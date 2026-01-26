@@ -5,6 +5,11 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import NavigationMenu from "@/components/NavigationMenu";
+import Footer from "@/components/Footer";
+import BackgroundVideo from "@/components/BackgroundVideo";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import Logo from "@/components/Logo";
+import { UIProvider } from "@/components/UIProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -36,10 +41,16 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className={`${inter.variable} antialiased`} suppressHydrationWarning>
+      <body className={`${inter.variable} antialiased min-h-screen flex flex-col bg-background text-foreground`} suppressHydrationWarning>
         <NextIntlClientProvider messages={messages}>
-          <NavigationMenu />
-          {children}
+          <UIProvider>
+            <Logo className="fixed md:top-8 md:left-8 top-6 left-6 z-[100] text-lg md:text-xl drop-shadow-md" />
+            <BackgroundVideo />
+            <LanguageSwitcher />
+            <NavigationMenu />
+            {children}
+            <Footer />
+          </UIProvider>
         </NextIntlClientProvider>
       </body>
     </html>

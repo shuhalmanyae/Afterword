@@ -1,0 +1,48 @@
+@PROJECT_WORKFLOW.md
+
+**Page Update: The Pledge (Security)**
+
+We need to rebuild `app/pledge/page.tsx`.
+
+**Design Directive (CRITICAL):**
+* **Source of Truth:** Strictly follow the design system used in `app/about/page.tsx`.
+* **Visuals:** Use the same typography (fonts/sizes), the same "Glassmorphism" container styles, and the same animation timings (`framer-motion`).
+* **Layout:** Centered content with plenty of negative space, just like the About page.
+
+**The Content to Implement:**
+
+**1. Hero Section**
+* **Headline:** "The Swiss Pledge"
+* **Subtitle:** "Where your silence is protected by stone."
+
+**2. Core Section (The 3 Pillars)**
+* *Layout:* Use a clean, responsive grid (similar to how we listed features in About).
+
+* **Card 1: The Mountain**
+    * **Header:** "We do not trust the Cloud. We trust the Alps."
+    * **Body:** "Afterword has returned to the physical. Your legacy is stored in former military-grade bunkers, buried deep beneath granite rock. Designed to withstand time, nature, and intrusion."
+    * **Footer Details:** "Location: Deep Earth Storage, Switzerland. Jurisdiction: Solely Swiss."
+
+* **Card 2: The Law**
+    * **Header:** "No Backdoors."
+    * **Body:** "Operating strictly under Swiss Federal Law (FADP), we are forbidden from disclosing your data to foreign entities. We are not a social network. We are a Vault. Even our engineers cannot read your encrypted entries."
+
+* **Card 3: The Guardian Protocol**
+    * **Header:** "We exist for exactly one moment."
+    * **Body:** "Our Pulse Verification System checks for your digital heartbeat. It verifies with your Trusted Circle. It waits for the silence. When that moment comes, the system executes the command you left behind."
+
+**3. The Process Steps (Visual Flow)**
+* Display these 3 steps clearly:
+    1.  **Verification** (Absolute confirmation of status).
+    2.  **Decryption** (Vault unlocks for Recipients).
+    3.  **Delivery** (Unchanged. Uncensored. Eternal).
+
+**4. The Footer / CTA**
+* **Text:** "The world is loud. Your legacy should be secure. Place your story where the banks place their gold."
+* **Button:** "Secure Your Entry" (Use the main CTA style).
+
+**Technical Note:**
+* Ensure the background video/image remains consistent with the global theme.
+* Use the same `Navbar` and `Footer` components.
+
+Please overwrite `app/pledge/page.tsx` with this content and style.

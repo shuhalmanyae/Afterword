@@ -143,9 +143,9 @@ export default function AboutPage() {
                 <Section>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         <div>
-                            <h2 className="text-4xl md:text-5xl font-serif mb-8">Why Switzerland?</h2>
+                            <h2 className="text-4xl md:text-5xl font-serif mb-8">The Legal Map.</h2>
                             <p className="text-lg md:text-xl text-white/80 font-light leading-relaxed">
-                                Trust is not a vibe; in our world, it is geography. Your data is protected by the strictest privacy laws on Earth. Your secrets die with you—unless you choose to share them.
+                                Safety is a matter of map coordinates and legal iron. Your legacy rests within the safest privacy ecosystem on the planet. You are the only person who can unlock the silence.
                             </p>
                         </div>
                         <div className="relative h-[400px] w-full flex items-center justify-center [mask-image:radial-gradient(circle_at_center,black_30%,transparent_70%)]">

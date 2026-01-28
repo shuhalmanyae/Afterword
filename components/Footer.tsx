@@ -12,7 +12,7 @@ export default function Footer() {
     const { openReferralModal, isGlobalNavForced } = useUI();
     const pathname = usePathname();
 
-    if (pathname && pathname.includes("/verify") && !isGlobalNavForced) return null;
+    if (pathname && (pathname.includes("/verify") || pathname.includes("/begin") || pathname.includes("/dashboard")) && !isGlobalNavForced) return null;
 
     return (
         <footer className="w-full z-50 relative bg-[#050505] text-white">

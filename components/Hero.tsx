@@ -72,7 +72,7 @@ export default function Hero() {
                         className="mt-4 flex items-center justify-start gap-x-8"
                     >
                         <Link
-                            href="#"
+                            href="/begin"
                             className="group relative rounded-full bg-transparent px-8 py-4 text-sm font-light text-white border border-white/30 hover:border-white/80 transition-all duration-500 flex items-center gap-3 overflow-hidden backdrop-blur-sm"
                         >
                             <div className="absolute inset-0 w-full h-full bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

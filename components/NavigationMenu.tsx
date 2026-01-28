@@ -19,7 +19,7 @@ export default function NavigationMenu() {
     const { isNavOpen, toggleNav, closeAll, openReferralModal, isGlobalNavForced } = useUI();
     const pathname = usePathname();
 
-    if (pathname && pathname.includes("/verify") && !isGlobalNavForced) return null;
+    if (pathname && (pathname.includes("/verify") || pathname.includes("/dashboard") || pathname === "/" || pathname === "/begin") && !isGlobalNavForced) return null;
 
     const menuItems = [
         { label: "Home", href: "/" },

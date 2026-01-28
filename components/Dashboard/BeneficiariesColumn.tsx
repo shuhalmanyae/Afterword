@@ -23,16 +23,7 @@ export default function BeneficiariesColumn({ beneficiaries, activeId, onSelect,
 
     return (
         <div className="flex flex-col h-full p-6 bg-black/40 backdrop-blur-md text-white">
-            {/* Logo */}
-            <div className="mb-10">
-                <Link href="/" className="inline-block group">
-                    <h1 className="text-2xl font-serif tracking-wider text-white opacity-90 group-hover:opacity-100 transition-opacity">
-                        AfterWord
-                    </h1>
-                </Link>
-            </div>
-
-            <div className="flex items-center justify-between mb-8">
+            <div className="flex items-center justify-between mb-8 mt-4">
                 <h2 className="text-xl font-light tracking-wide text-white/50 uppercase text-sm">Your Inner Circle</h2>
                 <button
                     onClick={onAdd}

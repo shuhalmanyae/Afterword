@@ -24,6 +24,11 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
   --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+  --font-mono: var(--font-jetbrains);
+  --font-display: var(--font-dancing);
+  --font-cinzel: var(--font-cinzel);
+  --font-montserrat: var(--font-montserrat);
 
   --animate-shimmer: shimmer 2s linear infinite;
 
@@ -45,9 +50,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 /* Custom Scrollbar - Minimalist */
 .custom-scrollbar::-webkit-scrollbar {
-  width: 4px; /* Thin */
+  width: 4px;
+  /* Thin */
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
@@ -56,7 +63,8 @@ body {
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.2);
-  border-radius: 99px; /* Full pill shape */
+  border-radius: 99px;
+  /* Full pill shape */
   transition: background 0.2s;
 }
 
@@ -72,9 +80,11 @@ body {
 
 /* Modern Textarea Resizer */
 textarea {
-  resize: vertical; /* Only vertical resize */
+  resize: vertical;
+  /* Only vertical resize */
 }
 
 textarea::-webkit-resizer {
-  display: none; /* Hide default ugly handle */
+  display: none;
+  /* Hide default ugly handle */
 }

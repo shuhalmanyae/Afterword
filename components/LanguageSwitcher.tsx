@@ -12,7 +12,7 @@ export default function LanguageSwitcher() {
     const router = useRouter();
     const currentLocale = useLocale();
 
-    if (pathname && pathname.includes("/verify") && !isGlobalNavForced) return null;
+    if (pathname && (pathname.includes("/verify") || pathname.includes("/dashboard") || pathname === "/" || pathname === "/begin") && !isGlobalNavForced) return null;
 
     const locales = [
         { code: "en", label: "EN" },
